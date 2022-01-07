@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Shadows+Into+Light&family=Slabo+27px&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- This Section was made to Inform the consumer how the quiz works -->
+    <div class="container">
+        <div id="page-1">
+            <h2>Coding Quiz</h2>
+            <h2>Try to answer the following code related questions with in the time limit.</h2>
+            <!-- These buttons will start the quiz and also take you to the Highscore list -->
+            <button id="start"> Start Quiz </button>
+            <button id="highscores" onclick="showHighscore()">Highscores</button>
+        </div>
+
+        <!-- This is the actual quiz sections and options -->
+        <div id="quiz">
+            <div id="TR"> Time Remaining </div>
+            <div id="qq">
+                <p>Quiz Questions</p>
+            </div>
+            <button id="1" onclick="checkAnswer('1')">1</button>
+            <button id="2" onclick="checkAnswer('2')">2</button>
+            <button id="3" onclick="checkAnswer('3')">3</button>
+            <button id="4" onclick="checkAnswer('4')">4</button>
+            <div id="results"></div>
+        </div>
+
+        <div id="Complete">
+            <div id="score-card"></div>
+            <!-- This is where the consumer can add their highscore to the list -->
+            <input type="text" size="50" placeholder="Drop your initials to add your highscore." name="initials"
+                id="init">
+            <button id="add-score">Add your Score</button>
+        </div>
+        <div id="hs-container">
+            <div id="hs-list">
+                <div id="hs-head">
+                    <!-- This is where the consumers initials will need to be typed and where thier score will show. -->
+                    <h2>Your Initials here</h2>
+                    <h2>Score Card</h2>
+                </div>
+                <div id="hs-init"></div>
+                <div id="hs-card"></div>
+            </div>
+            <div id="FinishButton">
+                <button id="KeepPlaying" onclick="replayQuiz()">Keep Playing</button>
+                <button id="clear-scores" onclick="clearScore()">Clear Scores</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
