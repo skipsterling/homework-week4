@@ -171,3 +171,41 @@ function showHighscore() {
   generateHighscores();
 }
 
+// This function clears the local storage of all the highscores and it also clears the text from the highscore board.
+function clearScore() {
+  window.localStorage.clear();
+  hsInit.textContent = "";
+  hsCard.textContent = "";
+}
+
+// This function resets the all of the variables to the original state so the quiz can be replayed. 
+function replayQuiz() {
+  hsContainer.style.display = "none";
+  complete.style.display = "none";
+  page1.style.display = "flex";
+  timeLeft = 100;
+  sCard = 0;
+  presentQIndicator = 0;
+}
+
+// This function will check the answers to each question are correct.
+function checkAnswer(answer) {
+  correct = questionTime[presentQIndicator].correctanswer;
+
+  if (answer === correct && presentQIndicator !== lastQIndicator) {
+    sCard++;
+    alert("That Is Correct!");
+    presentQIndicator++;
+    generateQuestionTime();
+    //display in the results div that the answer is correct.
+  } else if (answer !== correct && presentQIndicator !== lastQIndicator) {
+    alert("That Is Incorrect.")
+    presentQIndicator++;
+    generateQuestionTime();
+    //display in the results div that the answer is wrong.
+  } else {
+    showScore();
+  }
+}
+
+startbutton.addEventListener("click", quizStart);
